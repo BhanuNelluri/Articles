@@ -1,0 +1,21 @@
+{
+  "name": "memories_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BhanuNelluri/Memories_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BhanuNelluri/Memories_Project/issues"
+  },
+  "homepage": "https://github.com/BhanuNelluri/Memories_Project#readme"
+}
