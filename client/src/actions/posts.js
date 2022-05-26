@@ -30,10 +30,12 @@ export const getPosts = (page) => async (dispatch) => {
 
 export const createPost = (history,post) => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data } = await api.createPost(post);
         const action = { type: CREATE, payload: data };
         dispatch(action);
         history.push('/');
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
     }
@@ -41,9 +43,11 @@ export const createPost = (history,post) => async (dispatch) => {
 
 export const updatepost = (history,id, post) => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         dispatch({ type: UPDATE, payload: post });
         await api.updatePost(id, post);
         history.push('/');
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error);
     }

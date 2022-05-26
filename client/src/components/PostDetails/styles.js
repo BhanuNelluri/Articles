@@ -4,26 +4,21 @@ export default makeStyles((theme) => ({
     media: {
         borderRadius: '20px',
         objectFit: 'cover',
-        width: '100%',
-        maxHeight: '600px',
+        width: '50%',
+        maxHeight: '400px',
 
     },
     card: {
         display: 'flex',
-        width: '100%', 
-        flexWrap: 'wrap',
-        flexDirection: 'column',
+            flexDirection: 'column',
     },
     section: {
         borderRadius: '20px',
-        margin: '10px',
+        margin: '20px',
         flex: 1,
     },
     imageSection: {
         marginLeft: '20px',
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: 0,
-        },
     },
     loadingPaper: {
         display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',

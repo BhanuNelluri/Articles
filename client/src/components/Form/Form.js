@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { createPost, updatepost } from '../../actions/posts';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
 
 const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({ title: '', message: '', selectedFile: '',likes:[] });
@@ -13,7 +14,8 @@ const Form = ({ currentId, setCurrentId }) => {
     const post = useSelector((state) => currentId ? state.posts.posts.find((p) =>
         p._id === currentId
     ) : null)
-
+    const { isLoading } = useSelector((state) => state.posts);
+    console.log(isLoading);
     useEffect(() => {
         if (post) setPostData(post)
     }, [post])
@@ -67,13 +69,18 @@ const Form = ({ currentId, setCurrentId }) => {
                         onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
                     />
                 </div>
+                
                 <Button className={classes.buttonSubmit}
                     variant="contained"
                     color="primary"
                     size="large"
                     type="submit"
                     fullWidth
-                >Submit</Button>
+                >{isLoading ? <div><CircularProgress fontSize="small" /></div> : (
+                    <div>
+                        Submit
+                    </div>
+                )}</Button>
                 <Button
                     variant="contained"
                     color="secondary"

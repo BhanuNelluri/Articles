@@ -14,11 +14,11 @@ const Posts = ({ setCurrentId,userArticles,setUserArticles }) => {
         isLoading ? <CircularProgress /> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {userArticles?userPosts.map((post) => (
-                    <Grid key={post._id} item lg = {12} md = {12} sm = {12} xs = {12}>
+                    <Grid key={post._id} item lg = {6} md = {6} sm = {12} xs = {12}>
                         <Post post={post} setCurrentId={setCurrentId} />
                     </Grid>
                 )): posts.map((post) => (
-                    <Grid key={post._id} item lg = {12} md = {12} sm = {12} xs = {12}>
+                    <Grid key={post._id} item lg = {6} md = {6} sm = {12} xs = {12}>
                         <Post post={post} setCurrentId={setCurrentId} />
                     </Grid>
                 ))
